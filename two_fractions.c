@@ -20,16 +20,16 @@ int gcd(int a, int b)
 struct fractions addition(fractions a, fractions b)
 {
     struct fractions c;
-	int num = ((a.num*b.den)+(b.num*a.den));
-	int den = (a.den*b.den);
+	c.num = ((a.num*b.den)+(b.num*a.den));
+	c.den = (a.den*b.den);
 	int com = gcd(num, den);
 	c.num = num/com;
 	c.den = den/com;
 	return c;
 }
-void output(struct fractions c)
+void output(struct fractions a, struct fractions b)
 {
-	printf("The sum is %d/%d\n", c.num, c.den);
+	printf("The sum of %d/%d & %d/%d is %d/%d\n",a.num,a.den,b.num,b.den,addition(a,b).num,addition(a,b).den);
 }
 int main()
 {
@@ -38,6 +38,6 @@ int main()
 	a=input(a);
 	printf("Enter second fraction:");
 	b=input(b);
-	output(addition(a,b));
+	output(a,b);
 	return 0;
 }
